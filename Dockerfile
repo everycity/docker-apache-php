@@ -50,7 +50,7 @@ RUN set -ex; \
                 libzip4 \
         ; \
         \
-        docker-php-ext-configure gd --with-freetype-dir=/usr --with-jpeg-dir=/usr --with-png-dir=/usr; \
+        docker-php-ext-configure gd --with-freetype --with-jpeg; \
         docker-php-ext-install -j "$(nproc)" \
                 bcmath \
                 exif \
