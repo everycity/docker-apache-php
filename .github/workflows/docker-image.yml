@@ -16,7 +16,7 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Build the Docker image
-        run: docker build . --file Dockerfile -t docker-apache-php:$(date +%s) -t docker-apache-php:latest
+        run: docker build . --file Dockerfile --build-arg PHP_VER=7.4 -t docker-apache-php:$(date +%s) -t docker-apache-php:latest -t docker-apache-php:7.4
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
