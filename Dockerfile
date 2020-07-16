@@ -36,6 +36,8 @@ COPY php-sendmail.ini /usr/local/etc/php/conf.d/sendmail.ini
 
 # https://github.com/docker-library/wordpress/blob/master/php7.2/apache/Dockerfile
 
+ENV PHP_VER $PHP_VER
+
 # install the PHP extensions we need (https://make.wordpress.org/hosting/handbook/handbook/server-environment/#php-extensions)
 RUN set -ex; \
         \
@@ -52,7 +54,7 @@ RUN set -ex; \
                 libzip4 \
         ; \
         \
-	if [[ "x$PHP_VER" == "7.4" ]] ; then \
+	if [ "x$PHP_VER" = "x7.4" ] ; then \
 	        docker-php-ext-configure gd --with-freetype --with-jpeg; \
 	else \
 		docker-php-ext-configure gd --with-freetype-dir=/usr --with-jpeg-dir=/usr --with-png-dir=/usr; \
