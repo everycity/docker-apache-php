@@ -1,4 +1,6 @@
-FROM php:7.4-apache-buster
+ARG PHP_VERSION=7.4
+
+FROM php:${PHP_VERSION}-apache-buster
 
 # Update and install software
 RUN set -ex; \
@@ -50,7 +52,12 @@ RUN set -ex; \
                 libzip4 \
         ; \
         \
-        docker-php-ext-configure gd --with-freetype --with-jpeg; \
+	if [ "x$PHP_VERSION" == "7.4" ] ; then \
+	        docker-php-ext-configure gd --with-freetype --with-jpeg; \
+	else \
+		docker-php-ext-configure gd --with-freetype-dir=/usr --with-jpeg-dir=/usr --with-png-dir=/usr; \
+	fi; \
+	\
         docker-php-ext-install -j "$(nproc)" \
                 bcmath \
                 exif \
