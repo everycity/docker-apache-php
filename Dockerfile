@@ -1,6 +1,6 @@
-ARG PHP_VER=7.4
+ARG phpver
 
-FROM php:${PHP_VER}-apache-buster
+FROM php:${phpver}-apache-buster
 
 # Update and install software
 RUN set -ex; \
@@ -36,8 +36,9 @@ COPY php-sendmail.ini /usr/local/etc/php/conf.d/sendmail.ini
 
 # https://github.com/docker-library/wordpress/blob/master/php7.2/apache/Dockerfile
 
-RUN echo "a_PHP_VER: ${PHP_VER}"
-ENV PHP_VER $PHP_VER
+RUN echo "a_phpver: ${phpver}"
+ENV PHP_VER $phpver
+RUN echo "b_phpver: ${phpver}"
 RUN echo "b_PHP_VER: ${PHP_VER}"
 RUN echo "PHP_VERSION: ${PHP_VERSION}"
 
