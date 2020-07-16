@@ -20,9 +20,9 @@ jobs:
         with:
           build_args: PHP_VER=7.4
           tags: latest,7.4,7
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          registry: registry.hub.docker.com
           repository: everycity/docker-apache-php/docker-apache-php
           tag_with_ref: true
       - name: Build and push PHP 7.3
@@ -30,9 +30,9 @@ jobs:
         with:
           build_args: PHP_VER=7.3
           tags: 7.3
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          registry: registry.hub.docker.com
           repository: everycity/docker-apache-php/docker-apache-php
           tag_with_ref: true
       - name: Build and push PHP 7.2
@@ -40,8 +40,8 @@ jobs:
         with:
           build_args: PHP_VER=7.2
           tags: 7.2
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          registry: registry.hub.docker.com
           repository: everycity/docker-apache-php/docker-apache-php
           tag_with_ref: true
