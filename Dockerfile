@@ -37,8 +37,9 @@ COPY php-sendmail.ini /usr/local/etc/php/conf.d/sendmail.ini
 # https://github.com/docker-library/wordpress/blob/master/php7.2/apache/Dockerfile
 
 RUN echo "a_phpver: ${phpver}"
-ENV PHP_VER $phpver
+ARG phpver $phpver
 RUN echo "b_phpver: ${phpver}"
+RUN echo "c_phpver: ${phpver}"
 RUN echo "b_PHP_VER: ${PHP_VER}"
 RUN echo "PHP_VERSION: ${PHP_VERSION}"
 
