@@ -15,11 +15,31 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --build-arg phpver=7.4 -t docker-apache-php:$(date +%s) -t docker-apache-php:latest -t docker-apache-php:7.4
-      - name: Push to GitHub Packages
+      - name: Build and push PHP 7.4
         uses: docker/build-push-action@v1
         with:
+          build_args: PHP_VER=7.4
+          tags: latest,7.4,7
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: everycity/docker-apache-php/docker-apache-php
+          tag_with_ref: true
+      - name: Build and push PHP 7.3
+        uses: docker/build-push-action@v1
+        with:
+          build_args: PHP_VER=7.3
+          tags: 7.3
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: everycity/docker-apache-php/docker-apache-php
+          tag_with_ref: true
+      - name: Build and push PHP 7.2
+        uses: docker/build-push-action@v1
+        with:
+          build_args: PHP_VER=7.2
+          tags: 7.2
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com

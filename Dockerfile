@@ -1,6 +1,8 @@
-ARG phpver
+ARG PHP_VER
+FROM php:${PHP_VER}-apache-buster
 
-FROM php:${phpver}-apache-buster
+# ARG before FROM is considered outside the build, so we have to define it again
+ARG PHP_VER
 
 # Update and install software
 RUN set -ex; \
@@ -35,14 +37,6 @@ COPY php-sendmail.ini /usr/local/etc/php/conf.d/sendmail.ini
 # This is inspired from the Wordpress Dockerfile
 
 # https://github.com/docker-library/wordpress/blob/master/php7.2/apache/Dockerfile
-
-RUN echo "a_phpver: ${phpver}"
-ARG phpver $phpver
-RUN echo "b_phpver: ${phpver}"
-RUN echo "c_phpver: ${phpver}"
-RUN echo "b_PHP_VER: ${PHP_VER}"
-RUN echo "PHP_VERSION: ${PHP_VERSION}"
-
 
 # install the PHP extensions we need (https://make.wordpress.org/hosting/handbook/handbook/server-environment/#php-extensions)
 RUN set -ex; \
