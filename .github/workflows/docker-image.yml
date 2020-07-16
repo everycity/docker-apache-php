@@ -22,8 +22,7 @@ jobs:
           tags: latest,7.4,7
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          registry: registry.hub.docker.com
-          repository: everycity/docker-apache-php/docker-apache-php
+          repository: everycity/apache-php
           tag_with_ref: true
       - name: Build and push PHP 7.3
         uses: docker/build-push-action@v1
@@ -32,8 +31,7 @@ jobs:
           tags: 7.3
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          registry: registry.hub.docker.com
-          repository: everycity/docker-apache-php/docker-apache-php
+          repository: everycity/apache-php
           tag_with_ref: true
       - name: Build and push PHP 7.2
         uses: docker/build-push-action@v1
@@ -42,6 +40,5 @@ jobs:
           tags: 7.2
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          registry: registry.hub.docker.com
-          repository: everycity/docker-apache-php/docker-apache-php
+          repository: everycity/apache-php
           tag_with_ref: true
