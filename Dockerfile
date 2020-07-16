@@ -1,6 +1,6 @@
-ARG PHP_VERSION=7.4
+ARG PHP_VER=7.4
 
-FROM php:${PHP_VERSION}-apache-buster
+FROM php:${PHP_VER}-apache-buster
 
 # Update and install software
 RUN set -ex; \
@@ -52,7 +52,7 @@ RUN set -ex; \
                 libzip4 \
         ; \
         \
-	if [ "x$PHP_VERSION" == "7.4" ] ; then \
+	if [[ "x$PHP_VER" == "7.4" ]] ; then \
 	        docker-php-ext-configure gd --with-freetype --with-jpeg; \
 	else \
 		docker-php-ext-configure gd --with-freetype-dir=/usr --with-jpeg-dir=/usr --with-png-dir=/usr; \
