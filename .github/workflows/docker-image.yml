@@ -24,7 +24,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: everycity/apache-php
-          tag_with_ref: true
 
       - name: Build and push PHP 7.2
         uses: docker/build-push-action@v1
@@ -34,7 +33,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: everycity/apache-php
-          tag_with_ref: true
 
       - name: Build and push PHP 7.3
         uses: docker/build-push-action@v1
@@ -44,7 +42,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: everycity/apache-php
-          tag_with_ref: true
 
       - name: Build and push PHP 7.4
         uses: docker/build-push-action@v1
@@ -54,4 +51,4 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: everycity/apache-php
-          tag_with_ref: true
+
