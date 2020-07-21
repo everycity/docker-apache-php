@@ -15,15 +15,27 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      - name: Build and push PHP 7.4
+
+      - name: Build and push PHP 5.6
         uses: docker/build-push-action@v1
         with:
-          build_args: PHP_VER=7.4
-          tags: latest,7.4,7
+          build_args: PHP_VER=5.6
+          tags: 5.6
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: everycity/apache-php
           tag_with_ref: true
+
+      - name: Build and push PHP 7.2
+        uses: docker/build-push-action@v1
+        with:
+          build_args: PHP_VER=7.2
+          tags: 7.2
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          repository: everycity/apache-php
+          tag_with_ref: true
+
       - name: Build and push PHP 7.3
         uses: docker/build-push-action@v1
         with:
@@ -33,11 +45,12 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: everycity/apache-php
           tag_with_ref: true
-      - name: Build and push PHP 7.2
+
+      - name: Build and push PHP 7.4
         uses: docker/build-push-action@v1
         with:
-          build_args: PHP_VER=7.2
-          tags: 7.2
+          build_args: PHP_VER=7.4
+          tags: 7.4,7,latest
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: everycity/apache-php
