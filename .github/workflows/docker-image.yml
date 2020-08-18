@@ -25,6 +25,15 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: everycity/apache-php
 
+      - name: Build and push PHP 7.1
+        uses: docker/build-push-action@v1
+        with:
+          build_args: PHP_VER=7.1
+          tags: 7.1
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          repository: everycity/apache-php
+
       - name: Build and push PHP 7.2
         uses: docker/build-push-action@v1
         with:
