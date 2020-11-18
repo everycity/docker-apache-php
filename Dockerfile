@@ -1,6 +1,7 @@
 ARG PHP_VER
 ARG DEBIAN_VER=buster
 ARG APACHE_VER=-apache-${DEBIAN_VER}
+ARG LIBZIP_VER=4
 FROM php:${PHP_VER}${APACHE_VER}
 
 # ARG before FROM is considered outside the build, so we have to define it again
@@ -53,7 +54,7 @@ RUN set -ex; \
                 libpng-dev \
                 libpq-dev \
                 libzip-dev \
-                libzip4 \
+                libzip${LIBZIP_VER} \
         ; \
         \
 	if [ "x$PHP_VER" = "x7.4" ] ; then \
