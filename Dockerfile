@@ -6,6 +6,7 @@ FROM php:${PHP_VER}${APACHE_VER}
 
 # ARG before FROM is considered outside the build, so we have to define it again
 ARG PHP_VER
+ARG LIBZIP_VER
 
 # Update and install software
 RUN set -ex; \
