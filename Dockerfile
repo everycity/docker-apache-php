@@ -1,6 +1,7 @@
 ARG PHP_VER
 ARG DEBIAN_VER=buster
-FROM php:${PHP_VER}-apache-${DEBIAN_VER}
+ARG APACHE_VER=-apache-${DEBIAN_VER}
+FROM php:${PHP_VER}${APACHE_VER}
 
 # ARG before FROM is considered outside the build, so we have to define it again
 ARG PHP_VER

@@ -19,7 +19,7 @@ jobs:
       - name: Build and push PHP 5.4
         uses: docker/build-push-action@v1
         with:
-          build_args: PHP_VER=5.4,DEBIAN_VER=stretch
+          build_args: PHP_VER=5.4,APACHE_VER=-apache
           tags: 5.4
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
