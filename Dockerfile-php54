@@ -1,7 +1,5 @@
-ARG PHP_VER
-ARG DEBIAN_VER=buster
-ARG APACHE_VER=-apache-${DEBIAN_VER}
-FROM php:${PHP_VER}${APACHE_VER}
+ARG PHP_VER=5.4
+FROM php:${PHP_VER}-apache
 
 # ARG before FROM is considered outside the build, so we have to define it again
 ARG PHP_VER
@@ -53,7 +51,7 @@ RUN set -ex; \
                 libpng-dev \
                 libpq-dev \
                 libzip-dev \
-                libzip4 \
+                libzip2 \
         ; \
         \
 	if [ "x$PHP_VER" = "x7.4" ] ; then \
@@ -68,7 +66,6 @@ RUN set -ex; \
                 gd \
                 pdo_mysql \
                 mysqli \
-                opcache \
                 zip \
         ; \
         pecl install imagick-3.4.4; \
@@ -87,16 +84,6 @@ RUN set -ex; \
         \
         apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
         rm -rf /var/lib/apt/lists/*
-
-# Configure PHP Opcache
-# see https://secure.php.net/manual/en/opcache.installation.php
-RUN { \
-                echo 'opcache.memory_consumption=128'; \
-                echo 'opcache.interned_strings_buffer=8'; \
-                echo 'opcache.max_accelerated_files=4000'; \
-                echo 'opcache.revalidate_freq=2'; \
-                echo 'opcache.fast_shutdown=1'; \
-        } > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
 # Log the X-Forwarded-For header
 RUN set -eux; \
