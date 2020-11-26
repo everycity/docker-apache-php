@@ -131,6 +131,6 @@ RUN set -eux; \
 RUN sed -i 's/\/var\/www:/\/var\/www\/html:/g' /etc/passwd
 
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # vim:set ft=dockerfile:
