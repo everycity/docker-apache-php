@@ -64,7 +64,7 @@ RUN set -ex; \
 		docker-php-ext-configure gd --with-freetype-dir=/usr --with-jpeg-dir=/usr --with-png-dir=/usr; \
 	fi; \
 	\
-        docker-php-ext-install -j "$(nproc)" \
+        docker-php-ext-install \
                 bcmath \
                 exif \
                 gd \
