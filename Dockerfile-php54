@@ -48,7 +48,6 @@ RUN set -ex; \
                 libpng-dev \
                 libpq-dev \
                 libzip-dev \
-		libssl-dev \
                 libzip2 \
         ; \
         \
@@ -65,7 +64,6 @@ RUN set -ex; \
                 pdo_mysql \
                 mysqli \
                 zip \
-		openssl \
         ; \
         pecl install imagick-3.4.4; \
         docker-php-ext-enable imagick; \

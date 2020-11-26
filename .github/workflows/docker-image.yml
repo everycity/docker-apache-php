@@ -19,8 +19,7 @@ jobs:
       - name: Build and push PHP 5.3
         uses: docker/build-push-action@v1
         with:
-          dockerfile: ./Dockerfile-php5
-          build_args: PHP_VER=5.3
+          dockerfile: ./Dockerfile-php53
           tags: 5.3
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -29,8 +28,7 @@ jobs:
       - name: Build and push PHP 5.4
         uses: docker/build-push-action@v1
         with:
-          dockerfile: ./Dockerfile-php5
-          build_args: PHP_VER=5.4
+          dockerfile: ./Dockerfile-php54
           tags: 5.4
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
