@@ -8,8 +8,8 @@ ARG PHP_VER
 RUN set -ex; \
         \
         apt-get update; \
-        apt-get upgrade -y; \
-        apt-get install -y \
+        apt-get upgrade -y --force-yes; \
+        apt-get install -y --force-yes \
                 msmtp \
                 vim \
                 telnet \
