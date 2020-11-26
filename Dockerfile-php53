@@ -81,6 +81,15 @@ RUN set -ex; \
                 zip \
 		openssl \
         ; \
+	\
+	docker-php-ext-enable \
+		bcmath \
+		gd \
+		mysqli \
+		zip \
+		openssl \
+	; \
+	\
         pecl install imagick-3.3.0; \
         docker-php-ext-enable imagick; \
         \
