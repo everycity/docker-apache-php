@@ -31,7 +31,7 @@ COPY php-uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 COPY php-sendmail.ini /usr/local/etc/php/conf.d/sendmail.ini
 
 # These helper scripts arrived in php 5.4, so lets add them
-COPY php53-files/docker-php-ext-* /usr/local/bin/
+COPY php53-files/docker-php-* /usr/local/bin/
 
 # Most PHP apps need useful extensions, like ImageMagick and what not
 # This is inspired from the Wordpress Dockerfile
