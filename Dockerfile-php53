@@ -33,16 +33,13 @@ COPY php-sendmail.ini /usr/local/etc/php/conf.d/sendmail.ini
 # These helper scripts arrived in php 5.4, so lets add them
 COPY php53-files/docker-php-* /usr/local/bin/
 
-# This rabbithole gets deeper and deeper
-RUN set -ex; \
-	docker-php-source extract; \
-	cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4
-
-# Need some PHP source
+# Need some PHP source, try and facilitate openssl extension
 RUN set -ex; \
 	\
 	mkdir -p /usr/src; \
-	wget -O /usr/src/php.tar.xz "https://www.php.net/distributions/php-5.3.29.tar.xz"
+	wget -O /usr/src/php.tar.xz "https://www.php.net/distributions/php-5.3.29.tar.xz"; \
+	docker-php-source extract; \
+	cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4
 
 # Most PHP apps need useful extensions, like ImageMagick and what not
 # This is inspired from the Wordpress Dockerfile
