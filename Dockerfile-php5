@@ -22,9 +22,6 @@ RUN set -ex; \
                 gsfonts \
                 fontconfig
 
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
 # Sort out the env a bit
 RUN a2enmod headers
 
@@ -51,6 +48,7 @@ RUN set -ex; \
                 libpng-dev \
                 libpq-dev \
                 libzip-dev \
+		libssl-dev \
                 libzip2 \
         ; \
         \
@@ -67,6 +65,7 @@ RUN set -ex; \
                 pdo_mysql \
                 mysqli \
                 zip \
+		openssl \
         ; \
         pecl install imagick-3.4.4; \
         docker-php-ext-enable imagick; \
@@ -107,5 +106,8 @@ RUN set -eux; \
 
 # Fix homedir
 RUN sed -i 's/\/var\/www:/\/var\/www\/html:/g' /etc/passwd
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # vim:set ft=dockerfile:
