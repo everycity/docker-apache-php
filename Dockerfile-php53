@@ -60,6 +60,9 @@ RUN set -ex; \
 		libssl-dev \
                 libzip2 \
         ; \
+	\
+	mkdir /usr/include/freetype2/freetype; \
+	ln -s /usr/include/freetype2/freetype.h /usr/include/freetype2/freetype/freetype.h; \
         \
 	if [ "x$PHP_VER" = "x7.4" ] ; then \
 	        docker-php-ext-configure gd --with-freetype --with-jpeg; \
