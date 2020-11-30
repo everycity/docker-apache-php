@@ -19,6 +19,7 @@ RUN set -ex; \
                 mariadb-client \
                 wget \
                 curl \
+                rsync \
                 ghostscript \
                 fonts-dejavu-core \
                 gsfonts \
