@@ -26,7 +26,7 @@ RUN set -ex; \
                 fontconfig
 
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.10.17
 
 # Sort out the env a bit
 RUN a2enmod headers
