@@ -135,6 +135,7 @@ RUN set -xe \
 		libcurl4-openssl-dev \
 		libedit-dev \
 		libsqlite3-dev \
+		libmysqlclient-dev \
 		libssl-dev \
 		libxml2-dev \
 	" \
@@ -216,7 +217,6 @@ RUN set -ex; \
         \
         apt-get update; \
         apt-get install -y --no-install-recommends \
-		libmysqlclient-dev \
                 libfreetype6-dev \
                 libjpeg-dev \
                 libmagickwand-dev \
