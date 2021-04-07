@@ -38,7 +38,7 @@ jobs:
           platforms: linux/arm64
           push: true
           build-args: PHP_VER=7.4
-          tags: 7.4,7,latest
+          tags: everycity/apache-php:7.4,everycity/apache-php:7,everycity/apache-php:latest
 
       - name: Build and push PHP 5.3
         uses: docker/build-push-action@v1
