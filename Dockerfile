@@ -74,6 +74,8 @@ RUN set -ex; \
         ; \
         pecl install imagick-3.4.4; \
         docker-php-ext-enable imagick; \
+	pecl install redis; \
+	docker-php-ext-enable redis; \
         \
 # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
         apt-mark auto '.*' > /dev/null; \
