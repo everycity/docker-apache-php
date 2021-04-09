@@ -74,8 +74,10 @@ RUN set -ex; \
         ; \
         pecl install imagick-3.4.4; \
         docker-php-ext-enable imagick; \
-	pecl install redis; \
-	docker-php-ext-enable redis; \
+	if [ "x$PHP_VER" = "x7.4" ] || [ "x$PHP_VER" = "x7.3" ] || [ "x$PHP_VER" = "x7.2" ] || [ "x$PHP_VER" = "x7.1" ] ; then \
+		pecl install redis; \
+		docker-php-ext-enable redis; \
+	fi; \
         \
 # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
         apt-mark auto '.*' > /dev/null; \
